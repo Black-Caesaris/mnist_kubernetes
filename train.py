@@ -133,7 +133,7 @@ def main():
         scheduler.step()
 
     if args.save_model:
-        model_save_path = os.getenv('MODEL_PATH')
+        model_save_path = os.getenv('MODEL_SAVE_PATH')
         torch.save(model.state_dict(), model_save_path)
 
 

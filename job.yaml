@@ -9,6 +9,9 @@ spec:
       - name: train
         imagePullPolicy: IfNotPresent
         image: <image-name>
+        env:
+        - name: MODEL_SAVE_PATH
+          value: "/ss13793-mount/ss13793_model.pth"
         command: ["python", "main.py", "--epochs", "1"]
         volumeMounts:
         - name: ss13793-volume
