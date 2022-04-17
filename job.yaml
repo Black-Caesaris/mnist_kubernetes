@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ss13793-train
+spec:
+  template:
+    spec:
+      containers:
+      - name: train
+        imagePullPolicy: IfNotPresent
+        image: <image-name>
+        command: ["python", "main.py", "--epochs", "1"]
+        volumeMounts:
+        - name: ss13793-volume
+          mountPath: /ss13793-mount
+      restartPolicy: Never
+      volumes:
+        - name: ss13793-volume
+          persistentVolumeClaim:
+            claimName: ss13793-pvc

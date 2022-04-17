@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ss13793-inference-deployment
+  labels:
+    app: inference
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inference
+  template:
+    metadata:
+      labels:
+        app: inference
+    spec:
+      containers:
+      - name: ss13793-inference-container
+        imagePullPolicy: IfNotPresent
+        image: <image path in docker>
+        ports:
+        - containerPort: 80
+          name: inference-container-port
+        volumeMounts:
+        - name: ss13793-volume
+          mountPath: /ss13793-mount
+      volumes:
+      - name: ss13793-volume
+        persistentVolumeClaim:
+          claimName: ss13793-pvc
