@@ -17,7 +17,7 @@ spec:
       containers:
       - name: ss13793-inference-container
         imagePullPolicy: IfNotPresent
-        image: blackcaesaris/trainimage
+        image: blackcaesaris/inferenceimage
         ports:
         - containerPort: 80
           name: infer-port
