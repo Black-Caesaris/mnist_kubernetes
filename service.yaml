@@ -5,8 +5,10 @@ metadata:
 spec:
   selector:
     app.kubernetes.io/name: inference
+  type: NodePort
   ports:
   - name: inference-service-port
     protocol: TCP
     port: 80
-    targetPort: inference-container-port
+    targetPort: infer-port
+    nodePort: 30007

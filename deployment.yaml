@@ -20,7 +20,7 @@ spec:
         image: blackcaesaris/trainimage
         ports:
         - containerPort: 80
-          name: inference-container-port
+          name: infer-port
         volumeMounts:
         - name: ss13793-volume
           mountPath: /ss13793-mount
