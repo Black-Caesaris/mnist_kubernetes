@@ -10,6 +10,7 @@ import os
 from PIL import Image
 from flask import Flask, json, request
 
+import time
 
 class Net(nn.Module):
     def __init__(self):
@@ -107,6 +108,9 @@ def get_result():
 
     return json.dumps(res)
 
+print("sleeping")
+time.sleep(30)
+print("sleep ended")
 api.run(host='0.0.0.0')
 
 

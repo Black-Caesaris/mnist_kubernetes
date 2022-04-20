@@ -5,7 +5,7 @@ metadata:
   labels:
     app: inference
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: inference
@@ -16,8 +16,11 @@ spec:
     spec:
       containers:
       - name: ss13793-inference-container
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         image: blackcaesaris/inferenceimage
+        env:
+        - name: MODEL_SAVE_PATH
+          value: "/ss13793-mount/ss13793_model.pth"
         ports:
         - containerPort: 80
           name: infer-port

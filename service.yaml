@@ -4,7 +4,7 @@ metadata:
   name: ss13793-inference-service
 spec:
   selector:
-    app.kubernetes.io/name: inference
+    app: inference
   type: NodePort
   ports:
   - name: inference-service-port

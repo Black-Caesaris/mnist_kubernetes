@@ -15,10 +15,11 @@ RUN mkdir -p /app && cd /app \
 WORKDIR /app/mnist_kubernetes
 
 RUN /opt/conda/bin/conda install --yes pandas  
+RUN /opt/conda/bin/conda install --yes Flask
 RUN /opt/conda/bin/conda install --yes numpy  
 RUN /opt/conda/bin/conda install --yes scikit-learn
 
 ENV PORT 8001
 EXPOSE $PORT
 
-CMD ["python", "inference.py", "--epochs", "1"]
+CMD ["python3", "inference.py"]
