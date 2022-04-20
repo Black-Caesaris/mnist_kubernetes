@@ -86,7 +86,7 @@ def inference(img):
 
 
     inputs = inputs.to(device)
-    output = model(inputs)
+    output = model(img)
     index = output.data.numpy().argmax()
 
     return index 
